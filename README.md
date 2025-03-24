@@ -1,2 +1,2 @@
-# Spotify-Clone
-I have made these spotify clone while learning javascript.
+# Javascript Learning
+These are few mini javascript projects which I have made while learning javascript.
