@@ -57,6 +57,7 @@ body {
 .weather h1 {
     font-size: 60px;
     font-weight: 500;
+    margin-top: 10px;
 }
 .weather h2 {
     font-size: 45px;
