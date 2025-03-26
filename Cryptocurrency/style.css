@@ -1,0 +1,126 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Modern font for a clean look */
+  }
+  
+  /* Body Styling */
+  body {
+    background: linear-gradient(45deg, #1e3c72, #2a5298, #38ef7d, #11998e);
+    background-size: 400% 400%;
+    animation: gradientAnimation 10s ease infinite;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Gradient Animation */
+  @keyframes gradientAnimation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Container */
+  .container {
+    width: 90%;
+    max-width: 400px;
+    border: 2px solid #fff;
+    border-radius: 15px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.85);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Logo */
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 100px;
+    height: auto;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+  }
+  
+  /* Login Box */
+  .login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #38ef7d;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #ccc;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #38ef7d;
+    border-radius: 5px;
+    background-color: #1e1e1e;
+    color: #fff;
+  }
+  
+  .input-group input::placeholder {
+    color: #777;
+  }
+  
+  /* Login Button */
+  .login-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #38ef7d;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .login-btn:hover {
+    background-color: #2bd891;
+    transform: scale(1.05);
+  }
+  
+  /* Links */
+  .links {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .links a {
+    color: #38ef7d;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .links a:hover {
+    text-decoration: underline;
+  }
+  

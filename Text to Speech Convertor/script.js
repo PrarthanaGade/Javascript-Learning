@@ -1,14 +1,23 @@
-// Initialize SpeechSynthesisUtterance
 let speech = new SpeechSynthesisUtterance();
 let voices = [];
 
 // Select the voice dropdown
-let voiceSelect = document.querySelector("select"); // Replace "select" with your dropdown selector if different
+let voiceSelect = document.querySelector("select");
 
-// Populate voices when they change
-window.speechSynthesis.onvoiceschanged = () => {
+// Function to populate voices
+const populateVoices = () => {
   voices = window.speechSynthesis.getVoices();
+
+  if (!voices.length) {
+    // Retry if voices are not yet available
+    setTimeout(populateVoices, 100);
+    return;
+  }
+
   speech.voice = voices[0]; // Default voice
+
+  // Clear existing options in the dropdown
+  voiceSelect.innerHTML = "";
 
   // Populate the dropdown with available voices
   voices.forEach((voice, i) => {
@@ -19,6 +28,9 @@ window.speechSynthesis.onvoiceschanged = () => {
   });
 };
 
+// Event listener for when voices change
+window.speechSynthesis.onvoiceschanged = populateVoices;
+
 // Update the voice when a new one is selected
 voiceSelect.addEventListener("change", () => {
   speech.voice = voices[voiceSelect.value];
@@ -26,6 +38,15 @@ voiceSelect.addEventListener("change", () => {
 
 // Add click event for the speak button
 document.querySelector("button").addEventListener("click", () => {
-  speech.text = document.querySelector("textarea").value; // Text input for conversion
+  let text = document.querySelector("textarea").value;
+  if (!text.trim()) {
+    alert("Please enter some text to speak.");
+    return;
+  }
+
+  speech.text = text; // Text input for conversion
   window.speechSynthesis.speak(speech); // Perform text-to-speech
 });
+
+// Trigger voice population on page load
+populateVoices();
